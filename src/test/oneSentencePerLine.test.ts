@@ -31,12 +31,36 @@ suite("One sentence per line", () => {
     ["ignores abbreviations", "Ask Dr. No, e.g. now.", "Ask Dr. No, e.g. now."],
     ["splits after a number", "It was 1999. Then.", "It was 1999.\nThen."],
     ["handles an empty file", "", ""],
+    [
+      "ignores Markdown tables",
+      "A. B.\n\n| A. B. | C |\n|---|---|\n| D. E.  | F. |\n\nG. H.",
+      "A.\nB.\n\n| A. B. | C |\n|---|---|\n| D. E.  | F. |\n\nG.\nH.",
+    ],
+    [
+      "ignores Markdown tables in block quotes",
+      "> A. B.\n>\n> | A. B. |\n> |---|\n> | C. D. |\n\n>> | a |\n>> |---|\n>> | E. F. |",
+      "> A.\nB.\n>\n> | A. B. |\n> |---|\n> | C. D. |\n\n>> | a |\n>> |---|\n>> | E. F. |",
+    ],
+    [
+      "ignores Markdown tables with CRLF",
+      "| A. B. |\r\n|---|\r\n| C. D. |",
+      "| A. B. |\r\n|---|\r\n| C. D. |",
+    ],
+    ["splits lines with pipes outside tables", "a | B. C.", "a | B.\nC."],
   ];
   for (const [name, input, expected] of cases) {
     test(name, async () => {
       assert.equal(await format(input), expected);
     });
   }
+
+  test("ignores a selection inside a Markdown table", async () => {
+    const content = "| A. B. |\n|---|\n| C. D. |";
+    assert.equal(
+      await format(content, new vscode.Selection(2, 0, 2, 9)),
+      content,
+    );
+  });
 
   test("formats only the selection", async () => {
     assert.equal(

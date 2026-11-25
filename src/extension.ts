@@ -1,4 +1,5 @@
 import * as vscode from "vscode";
+import { formatMarkdownTable } from "./formatMarkdownTable";
 import { oneSentencePerLine } from "./oneSentencePerLine";
 
 export function activate(context: vscode.ExtensionContext): void {
@@ -9,6 +10,10 @@ export function activate(context: vscode.ExtensionContext): void {
     vscode.commands.registerTextEditorCommand(
       "vsc-extension.oneSentencePerLine",
       oneSentencePerLine,
+    ),
+    vscode.commands.registerTextEditorCommand(
+      "vsc-extension.formatMarkdownTable",
+      formatMarkdownTable,
     ),
   );
 }

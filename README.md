@@ -8,7 +8,13 @@ A Visual Studio Code extension providing custom scripts.
 
 Moves every sentence that starts on the same line as another one to its own line, in the selected text or, if nothing is selected, the whole file.
 
-A sentence ends with a `.` followed by whitespace, and that whitespace is removed. Ordered list markers (`1.`) and a few abbreviations (such as `e.g.` and `Dr.`) do not end a sentence. New lines keep the indentation of the original line, and existing line breaks are never removed.
+A sentence ends with a `.` followed by whitespace, and that whitespace is removed. Ordered list markers (`1.`) and a few abbreviations (such as `e.g.` and `Dr.`) do not end a sentence. New lines keep the indentation of the original line, and existing line breaks are never removed. Markdown tables are left unchanged.
+
+### Format Markdown Table
+
+Available in Markdown files. Left-aligns the cells and vertically aligns the column separators of every table the selection touches or, if nothing is selected, all tables in the file.
+
+Colons in the delimiter row (`:--`, `:-:`, `--:`) are kept, since they determine the alignment of the rendered table. Missing outer separators and cells are added. Tables in code blocks and block quotes are left unchanged.
 
 ## Development
 

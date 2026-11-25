@@ -20,6 +20,11 @@
         "command": "vsc-extension.oneSentencePerLine",
         "title": "Format: One Sentence per Line",
         "category": "Custom Scripts"
+      },
+      {
+        "command": "vsc-extension.formatMarkdownTable",
+        "title": "Format Markdown Table",
+        "category": "Custom Scripts"
       }
     ],
     "menus": {
@@ -27,6 +32,10 @@
         {
           "command": "vsc-extension.oneSentencePerLine",
           "when": "editorIsOpen"
+        },
+        {
+          "command": "vsc-extension.formatMarkdownTable",
+          "when": "editorLangId == markdown || resourceExtname == .md"
         }
       ]
     }
