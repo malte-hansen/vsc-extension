@@ -1,7 +1,8 @@
 {
-  "name": "vsc-extension",
-  "displayName": "Custom Scripts",
+  "name": "coding-hansen",
+  "displayName": "Coding Hansen",
   "description": "A Visual Studio Code extension providing custom scripts.",
+  "publisher": "Malte Hansen",
   "version": "0.0.1",
   "private": true,
   "engines": {
@@ -16,11 +17,19 @@
   "contributes": {
     "commands": [
       {
-        "command": "vsc-extension.helloWorld",
-        "title": "Hello World",
+        "command": "vsc-extension.oneSentencePerLine",
+        "title": "Format: One Sentence per Line",
         "category": "Custom Scripts"
       }
-    ]
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "vsc-extension.oneSentencePerLine",
+          "when": "editorIsOpen"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run check && node esbuild.mjs --production",

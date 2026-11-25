@@ -2,6 +2,14 @@
 
 A Visual Studio Code extension providing custom scripts.
 
+## Commands
+
+### Format: One Sentence per Line
+
+Moves every sentence that starts on the same line as another one to its own line, in the selected text or, if nothing is selected, the whole file.
+
+A sentence ends with a `.` followed by whitespace, and that whitespace is removed. Ordered list markers (`1.`) and a few abbreviations (such as `e.g.` and `Dr.`) do not end a sentence. New lines keep the indentation of the original line, and existing line breaks are never removed.
+
 ## Development
 
 Requires Node.js 24 or newer.
