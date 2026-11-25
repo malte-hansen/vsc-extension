@@ -1,0 +1,48 @@
+{
+  "name": "vsc-extension",
+  "displayName": "Custom Scripts",
+  "description": "A Visual Studio Code extension providing custom scripts.",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "vscode": "^1.146.0",
+    "node": ">=24"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [],
+  "contributes": {
+    "commands": [
+      {
+        "command": "vsc-extension.helloWorld",
+        "title": "Hello World",
+        "category": "Custom Scripts"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run check && node esbuild.mjs --production",
+    "build": "node esbuild.mjs",
+    "watch": "node esbuild.mjs --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check",
+    "format": "biome check --write",
+    "check": "npm run typecheck && npm run lint",
+    "pretest": "npm run check && npm run build && tsc --outDir out",
+    "test": "vscode-test",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.6.9",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^24.19.3",
+    "@types/vscode": "^1.146.0",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.1.0",
+    "@vscode/vsce": "^4.1.1",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2"
+  }
+}

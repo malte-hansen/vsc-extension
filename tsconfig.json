@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "node20",
+    "target": "es2024",
+    "lib": ["es2024"],
+    "types": ["node", "mocha"],
+    "rootDir": "src",
+    "outDir": "out",
+    "sourceMap": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "skipLibCheck": true
+  },
+  "include": ["src"]
+}
