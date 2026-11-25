@@ -20,15 +20,18 @@ npm install
 
 Press `F5` in VS Code to launch an Extension Development Host with the extension loaded. The default build task rebuilds on change.
 
-| Script              | Purpose                                         |
-| ------------------- | ----------------------------------------------- |
-| `npm run build`     | Bundle the extension into `dist/` with esbuild  |
-| `npm run watch`     | Rebuild on change                               |
-| `npm run typecheck` | Type-check with TypeScript                      |
-| `npm run lint`      | Lint and check formatting with Biome            |
-| `npm run format`    | Apply Biome fixes and formatting                |
-| `npm test`          | Run the integration tests in a VS Code instance |
-| `npm run package`   | Build a `.vsix` package                         |
+| Script                      | Purpose                                         |
+| --------------------------- | ----------------------------------------------- |
+| `npm run build`             | Bundle the extension into `dist/` with esbuild  |
+| `npm run watch`             | Rebuild on change                               |
+| `npm run typecheck`         | Type-check with TypeScript                      |
+| `npm run lint`              | Lint and check formatting with Biome            |
+| `npm run format`            | Apply Biome fixes and formatting                |
+| `npm test`                  | Run the integration tests in a VS Code instance |
+| `npm run package`           | Build a `.vsix` package                         |
+| `npm run install-extension` | Package and install into the local VS Code      |
+
+Installing requires the `code` command on your `PATH`. Reload VS Code windows afterwards to pick up the new version.
 
 ## Layout
 

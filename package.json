@@ -2,7 +2,7 @@
   "name": "coding-hansen",
   "displayName": "Coding Hansen",
   "description": "A Visual Studio Code extension providing custom scripts.",
-  "publisher": "Malte Hansen",
+  "publisher": "malte-hansen",
   "version": "0.0.1",
   "private": true,
   "engines": {
@@ -41,7 +41,8 @@
     "check": "npm run typecheck && npm run lint",
     "pretest": "npm run check && npm run build && tsc --outDir out",
     "test": "vscode-test",
-    "package": "vsce package"
+    "package": "vsce package --allow-missing-repository --skip-license",
+    "install-extension": "npm run package -- --out coding-hansen.vsix && code --install-extension coding-hansen.vsix --force"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.6.9",
