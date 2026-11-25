@@ -1,4 +1,5 @@
 import * as vscode from "vscode";
+import { isMarkdown } from "./documents";
 import { findTables, formatTable } from "./markdownTables";
 
 /**
@@ -9,11 +10,7 @@ export function formatMarkdownTable(
   { document, selections }: vscode.TextEditor,
   edit: vscode.TextEditorEdit,
 ): void {
-  // Files such as "*.prompt.md" have a language of their own.
-  if (
-    document.languageId !== "markdown" &&
-    !document.uri.path.endsWith(".md")
-  ) {
+  if (!isMarkdown(document)) {
     return;
   }
 

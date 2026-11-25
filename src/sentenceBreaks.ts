@@ -11,6 +11,16 @@ const LIST_MARKER = /^\s*(?:[-*+>]\s+)*\d+\.$/;
 // Abbreviations that are practically never the last word of a sentence.
 const ABBREVIATION = /\b(?:[Ee]\.g|[Ii]\.e|[Cc]f|vs|Dr|Mr|Mrs|Ms|Prof)\.$/;
 
+// The end of a sentence at the end of a line, optionally followed by closing
+// quotes, brackets, or markup, and by footnote references.
+const SENTENCE_END =
+  /[.!?\u2026][)\]}"'\u201C\u201D\u2019\u00BB*_`~]*(?:\[\^[^\]]+\])*$/;
+
+/** Whether a line, without trailing whitespace, ends with a sentence. */
+export function endsSentence(line: string): boolean {
+  return SENTENCE_END.test(line) && !ABBREVIATION.test(line);
+}
+
 /**
  * Finds the whitespace following each sentence in a line. A sentence ends with
  * a "." that is followed by whitespace, so "3.14" or "file.txt" do not match.

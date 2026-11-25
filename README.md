@@ -6,9 +6,11 @@ A Visual Studio Code extension providing custom scripts.
 
 ### Format: One Sentence per Line
 
-Moves every sentence that starts on the same line as another one to its own line, in the selected text or, if nothing is selected, the whole file.
+Puts every sentence on its own line, in the selected text or, if nothing is selected, the whole file. Sentences on the same line are split, and sentences spanning several lines are joined.
 
-A sentence ends with a `.` followed by whitespace, and that whitespace is removed. Ordered list markers (`1.`) and a few abbreviations (such as `e.g.` and `Dr.`) do not end a sentence. New lines keep the indentation of the original line, and existing line breaks are never removed. Markdown tables are left unchanged.
+A sentence ends with a `.` followed by whitespace, and that whitespace is removed. Ordered list markers (`1.`) and a few abbreviations (such as `e.g.` and `Dr.`) do not end a sentence. New lines keep the indentation and block quote markers (`>`) of the original line. Markdown tables and headings (`#`) are left unchanged.
+
+Lines are joined only in Markdown and plain text files, and only within a paragraph, list item, or block quote. Blank lines, headings, code blocks, HTML, math blocks, and hard line breaks are respected. A line ending with `.`, `!`, `?`, or `…` is not joined with the next one.
 
 ### Format Markdown Table
 

@@ -7,7 +7,7 @@ export interface Table {
   indent: string;
 }
 
-const FENCE = /^\s*(`{3,}(?=[^`]*$)|~{3,})/;
+export const FENCE = /^\s*(`{3,}(?=[^`]*$)|~{3,})/;
 const LIST_ITEM = /^\s*(?:[-*+]|\d{1,9}[.)])(?:\s|$)/;
 const BLOCK_QUOTE = /^\s*>(?: ?>)* ?/;
 const DELIMITER_CELL = /^:?-+:?$/;
@@ -74,7 +74,7 @@ export function findTableLines(lines: string[]): Set<number> {
   );
 }
 
-function closesFence(line: string, fence: string): boolean {
+export function closesFence(line: string, fence: string): boolean {
   const text = line.trim();
   return (
     text.length >= fence.length && text === fence.charAt(0).repeat(text.length)
